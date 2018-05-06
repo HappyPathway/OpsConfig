@@ -38,3 +38,6 @@ variable "azure_secret" {}
 variable "service_name" {
     default = "consul-cluster"
 }
+
+variable "env" {}
+variable "service_port" {}
