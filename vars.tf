@@ -41,3 +41,7 @@ variable "service_name" {
 
 variable "env" {}
 variable "service_port" {}
+
+variable "hosts" {
+    type = "list" 
+}
