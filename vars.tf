@@ -2,14 +2,6 @@ variable "count" {
     default = 3
 }
 
-variable "system_user" {
-    default = "admin"
-}
-
-variable "system_password" {
-    default = "admin"
-}
-
 variable "datadog_key" {
     default = "zzz"
 }
@@ -30,18 +22,22 @@ variable "triggers" {
     type = "list"
 }
 
-variable "azure_subscription" {} 
-variable "azure_tenant" {}
-variable "azure_client" {} 
-variable "azure_secret" {}
-
 variable "service_name" {
     default = "consul-cluster"
 }
 
 variable "env" {}
-variable "service_port" {}
 
 variable "hosts" {
     type = "list" 
 }
+
+variable "consul_address" {
+    default = "consul.ops.happypathway.com:8500"
+}
+
+variable "consul_dc" {
+    default = "dc1"
+}
+
+variable "dependencies" {}
