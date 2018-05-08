@@ -18,6 +18,8 @@ variable "service_name" {
     default = "consul-cluster"
 }
 
+variable "service_version" {}
+
 variable "env" {}
 
 variable "hosts" {
