@@ -1,4 +1,8 @@
 # Access a key in Consul
+data "vault_generic_secret" "credentials" {
+    path = "secret/credentials"
+}
+
 data "consul_keys" "aws_infra" {
   
   key {

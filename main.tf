@@ -34,7 +34,7 @@ resource "null_resource" "ops_config" {
 
   provisioner "remote-exec" {
     inline = [
-      "curl ${var.ddog_install_script} | sudo DD_API_KEY=${var.datadog_key} bash",
+      "curl ${var.ddog_install_script} | sudo DD_API_KEY=${data.vault_generic_secret.credentials.data['datadog_key']} bash",
       "sudo ansible-playbook /tmp/playbooks/datadog_agent.yaml -e datadog_api_key=${var.datadog_key} -e env=${var.env} -e service_name=${var.service_name}",
       "rm -rf /tmp/playbooks"
     ]

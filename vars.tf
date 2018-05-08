@@ -2,20 +2,12 @@ variable "count" {
     default = 3
 }
 
-variable "datadog_key" {
-    default = "zzz"
-}
-
 variable "ddog_install_script" {
     default = "https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh"
 }
 
 variable "datadog_monitor" {
     default = true
-}
-
-variable "consul_cluster" {
-    default = "consul-westus"
 }
 
 variable "triggers" {
@@ -33,6 +25,10 @@ variable "hosts" {
 }
 
 variable "consul_address" {
+    default = "consul.ops.happypathway.com:8500"
+}
+
+variable "vault_address" {
     default = "consul.ops.happypathway.com:8500"
 }
 
