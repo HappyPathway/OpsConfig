@@ -39,5 +39,3 @@ variable "consul_address" {
 variable "consul_dc" {
     default = "dc1"
 }
-
-variable "dependencies" {}

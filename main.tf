@@ -6,9 +6,6 @@ resource "null_resource" "ops_config" {
     cluster_instance_ids = "${join(",", var.triggers)}"
   }
 
-  depends_on = [
-      "${var.dependencies}"
-  ]
   # Bootstrap script can run on any instance of the cluster
   # So we just choose the first in this case
   connection {
