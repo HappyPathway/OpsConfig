@@ -31,7 +31,7 @@ variable "consul_address" {
 }
 
 variable "vault_address" {
-    default = "http://consul.ops.happypathway.com:8200"
+    default = "http://54.209.49.254:8200"
 }
 
 variable "consul_dc" {
