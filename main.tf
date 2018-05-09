@@ -21,7 +21,7 @@ resource "null_resource" "ops_config" {
 
   provisioner "file" {
       source = "${path.module}/playbooks"
-      destination = "/tmp/playbooks"
+      destination = "/tmp/opsconfig_playbooks"
   }
 
   provisioner "remote-exec" {
@@ -36,7 +36,7 @@ resource "null_resource" "ops_config" {
     inline = [
       " while [ $(top -bn1| grep -q apt; echo $?) == '0' ]; do echo 'apt runing'; sleep 1; done",
       "curl ${var.ddog_install_script} | sudo DD_API_KEY=${data.vault_generic_secret.credentials.data.datadog_key} bash",
-      "sudo ansible-playbook /tmp/playbooks/datadog_agent.yaml -e datadog_api_key=${data.vault_generic_secret.credentials.data.datadog_key} -e env=${var.env} -e service_name=${var.service_name}",
+      "sudo ansible-playbook /tmp/opsconfig_playbooks/datadog_agent.yaml -e datadog_api_key=${data.vault_generic_secret.credentials.data.datadog_key} -e env=${var.env} -e service_name=${var.service_name}",
       "rm -rf /tmp/playbooks"
     ]
   }
