@@ -13,7 +13,7 @@ data "consul_keys" "aws_infra" {
   
   key {
     name    = "security_group"
-    path    = environments/${var.env}/${var.service_name}/security_group"
+    path    = "environments/${var.env}/${var.service_name}/security_group"
     default = ""
   }
   
